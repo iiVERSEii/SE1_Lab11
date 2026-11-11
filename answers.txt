@@ -1,0 +1,33 @@
+1. Yes. The fault is that the loop starts at index 1 instead of index 0:
+   for (int i = 1; i < attendance_records.size(); ++i)
+   This skips the first lecture. The loop should start at index 0 to count all
+   ten attendance values.
+
+2. It is impossible to provide a 10-value test case that does not execute the
+   faulty loop. For every valid attendance record of length 10, the loop runs
+   from index 1 through index 9.
+
+3. Test case: {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+   Expected absence count: 0
+   Actual absence count:   0
+   Expected output: Pass
+   Actual output:   Pass
+   The faulty loop executes, but skipping the first value does not change the
+   count because the first value means present. There is no error state.
+
+4. Test case: {0, 0, 0, 0, 1, 1, 1, 1, 1, 1}
+   Expected absence count: 4
+   Actual absence count:   3
+   Expected output: Fail
+   Actual output:   Fail
+   The internal count is incorrect, so there is an error state. The output is
+   still correct because both counts meet the threshold of three absences, so
+   there is no failure.
+
+5. Test case: {0, 0, 0, 1, 1, 1, 1, 1, 1, 1}
+   Expected absence count: 3
+   Actual absence count:   2
+   Expected output: Fail
+   Actual output:   Pass
+   The incorrect count causes an error state, and the output differs from the
+   expected result, so this test produces a failure.
