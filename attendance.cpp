@@ -1,3 +1,11 @@
+//name: kaden shepherd
+//KUID: 3177228
+//Assignment: EECS 348 lab 11
+//creation date: 11/11/2026
+//collaborators: none
+
+
+
 // program
 
 #include <iostream>
